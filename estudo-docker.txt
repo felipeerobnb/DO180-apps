@@ -712,3 +712,112 @@ ENTRYPOINT $JBOSS_HOME/bin/standalone.sh -c standalone.xml -b 0.0.0.0
   741  history 80
   742  history 100
   743  history 100 >> ~/DO180-apps/estudo-docker.txt 
+ 1025  oc get pods | awk '/temps/'
+ 1026  oc get pods | awk '/!build/'
+ 1027  oc get pods | awk '/(!build)/'
+ 1028  oc get pods | awk '/?(!build)/'
+ 1029  oc get pods | awk '/(?!build)/'
+ 1030  oc get pods | awk '/^((?!build).)*$/'
+ 1031  oc get pods | awk '/((?!build).)*/'
+ 1032  oc get pods | awk '/((?!build).)/'
+ 1033  oc get pods -l app=temps
+ 1034  oc get pods
+ 1035  oc delete deploy
+ 1036  oc delete deploy --all
+ 1037  oc get pods
+ 1038  oc get all
+ 1039  oc get pods
+ 1040  oc delete bc --all
+ 1041  oc get pods -w
+ 1042  oc delete all -l app=temps
+ 1043  oc get all
+ 1044  oc new-app php:7.3~https://github.com/RedHatTraining/DO180-apps/ --context-dir=temps --name=temps
+ 1045  oc logs -f bc/temps
+ 1046  oc get pods -w
+ 1047  oc expose svc/temps
+ 1048  oc get routes/temps
+ 1049  lab openshift-review grade
+ 1050  clear
+ 1051  oc get pods -o yaml
+ 1052  oc get pods
+ 1053  oc get pods -o name
+ 1054  oc get pods -o name | tail -n 1
+ 1055  oc get pods -o name --field-selector=status.phase==Running
+ 1056  oc describe (oc get pods -o name --field-selector=status.phase==Running)
+ 1057  oc describe $(oc get pods -o name --field-selector=status.phase==Running)
+ 1058  oc decribe pod -l deployment=temps
+ 1059  oc describe pod -l deployment=temps
+ 1060  clear
+ 1061  oc new-app --help
+ 1062  oc new-app --help | grep Dockerfile
+ 1063  oc new-app --help | grep -i Dockerfile
+ 1064  oc new-app --help | grep -i Containerfile
+ 1065  oc new-app --help | grep -i docker
+ 1066  oc new-app --help | grep -i container
+ 1067  oc new-app --help | grep -i search
+ 1068  oc new-app --search --template=ruby
+ 1069  oc new-app --search --template=jenkins
+ 1070  oc get all
+ 1071  oc process --help
+ 1072  oc options
+ 1073  oc create --help
+ 1074  oc get all]
+ 1075  oc get all
+ 1076  oc get all -l template=temps
+ 1077  oc get all -l app=temps
+ 1078  oc get templates
+ 1079  oc search --help
+ 1080  oc new-app --search
+ 1081  oc-new app --help
+ 1082  oc new-app --help
+ 1083  oc new-app -S *
+ 1084  oc new-app -S
+ 1085  oc new-app -S mysql
+ 1086  oc new-app --template=mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l teste=foda --name=hahaha
+ 1087  oc new-app --template=mysql-ephemeral MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l teste=foda --name=hahaha
+ 1088  oc get all teste=foda
+ 1089  oc get all -l teste=foda
+ 1090  oc delete all -l teste=foda
+ 1091  oc new-app --template=openshift//mysql-ephemeral MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l teste=foda --name=hahaha
+ 1092  oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l db=mysql
+ 1093  oc status
+ 1094  oc delete all -l db=mysql
+ 1095  oc start-build --help
+ 1096  oc new-build --help
+ 1097  oc -h
+ 1098  oc -h | grep new
+ 1099  oc -h
+ 1100  oc process --help
+ 1101  clear
+ 1102  oc expose --help
+ 1103  oc get is
+ 1104  oc describe is/temps
+ 1105  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1106  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1107  oc get pod --field-selector=status.phase==Running -o jsonpath="{..name}"
+ 1108  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1109  oc get pod --field-selector=status.metadata.name}"
+ 1110  oc get pod -o jsonpath="{..metadata.name}"
+ 1111  oc get pod --field-selector=status.phase==Running -o jsonpath="{..name}"
+ 1112  oc get pod --field-selector=status.metadata.name}"
+
+
+
+
+
+
+
+
+
+ 1113  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1114  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}\n"
+ 1115  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}" -w "\n"
+ 1116  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}{\n}"
+ 1117  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}{'\n'}"
+ 1118  history 50
+ 1119  history 75
+ 1120  history -n 75
+ 1121  history n 75
+ 1122  history 75
+ 1123  history 100
+ 1124  history 100 >> ~/DO180-apps/estudo-docker.txt 
