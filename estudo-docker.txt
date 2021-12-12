@@ -1,0 +1,614 @@
+    1  git config --global credential.helper cache
+    2  lab-configure
+    3  git clone https://github.com/felipeerobnb/DO180-apps
+    4  #cd DO180-apps
+    5  ll
+    6  cd DO180-apps
+    7  git status
+    8  git checkout -b testbranch-mvkhys
+    9  echo "D180" > TEST-mvkhys
+   10  git add .
+   11  git commit -am "DO180"
+   12  git push -u origin testbranch-mvkhys
+   13  echo "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" > ~/creds
+   14  exit
+   15  man 5 Containerfile
+   16  man 5 Dockerfile
+   17  man 5 dockerfile
+   18  man 5 containerfile
+   19  man 5 docker
+   20  man 5 podman
+   21  man containerfile
+   22  man dockerfile
+   23  man 5
+   24  man 5 *
+   25  locale
+   26  gnome-control-center 
+   27  localectl status
+   28  localectl list-keymaps 
+   29  localectl list-keymaps | grep pt
+   30  localectl list-keymaps | grep br
+   31  localectl set-keymap br-abnt2
+   32  localctl status
+   33  localectl status
+   34  exit
+   35  localectl status
+   36  localectl set-keymap br-abnt2
+   37  localectl status
+   38  exit
+   39  localectl status
+   40  timedatectl 
+   41  date
+   42  timedatectl list-timezones 
+   43  timedatectl list-timezones | grep br
+   44  timedatectl list-timezones | grep fortaleza
+   45  timedatectl list-timezones | grep Fortaleza
+   46  timedatectl set-timezone America/Fortaleza
+   47  timedatectl
+   48  date
+   49  exit
+   50  localectl list-keymaps | grep cz
+   51  localectl list-keymaps | grep pt
+   52  localectl set-keymap pt-nativo
+   53  localectl status
+   54  localectl set-x11-keymap pt-nativo
+   55  localectl set-x11-keymap pt
+   56  localectl status
+   57  gnome-control-center 
+   58  localectl set-x11-keymap cz
+   59  localectl status
+   60  cat /etc/os-release 
+   61  ll
+   62  mkdir tests
+   63  mkdir -p tests/docker-build
+   64  cd tests/docker-build/
+   65  mkdir -p context/inner-dir
+   66  cd context/inner-dir/
+   67  touch Dockerfile
+   68  vim Dockerfile
+   69  pwd
+   70  cd ..
+   71  wget https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+   72  ll
+   73  podman images
+   74  podman ps
+   75  cd inner-dir/
+   76  vim Dockerfile
+   77  pwd
+   78  ll ..
+   79  vim Dockerfile
+   80  podman build -t exam-test .
+   81  podman build -t exam-test:latest .
+   82  vim Dockerfile
+   83  podman build -t exam-test:latest .
+   84  vim Dockerfile
+   85  podman build -t exam-test:latest .
+   86  vim Dockerfile
+   87  podman build -t exam-test:latest -f Dockerfile ..
+   88  podman images
+   89  podman ps -a
+   90  podman run -d -it --name exam-test /bin/bash
+   91  podman run -d -it --name exam-test exam-test /bin/bash
+   92  podman ps
+   93  podman exec -d -it --name exam-test exam-test /bin/bash
+   94  podman run -it --name exam-test exam-test /bin/bash
+   95  podman rm -af
+   96  podman ps -a
+   97  podman exec -d --name exam-test exam-test
+   98  podman run -d --name exam-test exam-test
+   99  podman ps -a
+  100  podman rm -af
+  101  podman pod
+  102  podman run -d --name exam-test exam-test /bin/bash
+  103  podman exec exam-test ll
+  104  podman exec -it exam-test ls -l
+  105  podman ps -a
+  106  podman rm -af
+  107  podman run -d --name exam-test exam-test /bin/bash
+  108  podman ps -a
+  109  podman rm -af
+  110  podman run --name exam-test exam-test /bin/bash
+  111  podman ps -a
+  112  podman rm -af
+  113  podman exec --name exam-test exam-test /bin/bash
+  114  podman exec exam-test /bin/bash
+  115  podman exec -it exam-test /bin/bash
+  116  podman run -it --name exam-test exam-test /bin/bash
+  117  vim Dockerfile
+  118  podman ps -a
+  119  podman run -it --name exam-test exam-test
+  120  podman rm -af
+  121  podman run -it --name exam-test exam-test
+  122  podman rm -af
+  123  vim Dockerfile
+  124  podman build -t exam-test:latest -f Dockerfile ..
+  125  vim Dockerfile
+  126  podman run -it --name exam-test exam-test
+  127  vim Dockerfile
+  128  podman build -t exam-test:latest -f Dockerfile ..
+  129  vim Dockerfile
+  130  podman run -it --name exam-test exam-test
+  131  podman rm -af
+  132  podman run -it --name exam-test exam-test
+  133  podman ps -a
+  134  vim Dockerfile
+  135  podman build -t exam-test:latest -f Dockerfile ..
+  136  podman rm -af
+  137  podman run -it --name exam-test exam-test
+  138  cd ..
+  139  ll
+  140  export auth-token=$(echo "felipeero:P@ssw0rd7" | base64)
+  141  export auth-token $(echo "felipeero:P@ssw0rd7" | base64)
+  142  export auth_token=$(echo "felipeero:P@ssw0rd7" | base64)
+  143  echo $auth_token
+  144  curl -H "Authorization: bearer $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  145  history
+  146  echo "Authorization: bearer $auth_token"
+  147  curl --user felipeero:P@ssw0rd7 https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  148  ll
+  149  rm -rf jboss-eap-7.2.0.zip 
+  150  curl --user 'felipeero:P@ssw0rd7' https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  151  curl -H "Authorization: bearer $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  152  curl https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  153  ll
+  154  curl -v https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  155  curl -vL --user 'felipeero:P@ssw0rd7' https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  156  curl -bvL --user 'felipeero:P@ssw0rd7' https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  157  ll
+  158  curl -bvL --user 'felipeero:P@ssw0rd7' https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  159  curl --help | grep cookies
+  160  curl -vL --user 'felipeero:P@ssw0rd7' https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  161  curl -H "Authorization: bearer $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  162  curl -vLH "Authorization: bearer $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  163  curl -vL -H "Authorization: bearer $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  164  curl -vL -H "Authorization: basic $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  165  wget --help
+  166  wget --header "Authorization: basic $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  167  ll
+  168  wget -d --header "Authorization: basic $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  169  wget -d --header="Authorization: basic $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  170  ll
+  171  rm -rf jboss*
+  172  ll
+  173  wget -d --header="Authorization: basic $auth_token" https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  174  ll
+  175  stat jboss-eap-7.2.0.zip
+  176  vi jboss-eap-7.2.0.zip
+  177  wget -d --http-user=felipeero --http-password=P@ssw0rd7 https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  178  vi jboss-eap-7.2.0.zip.2
+  179  wget --help | grep redirect
+  180  rm -rf jboss*
+  181  wget -d --http-user=felipeero --http-password=P@ssw0rd7 https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  182  wget --help | grep http
+  183  wget -d --user=felipeero --password=P@ssw0rd7 --https-only https://developers.redhat.com/content-gateway/file/jboss-eap-7.2.0.zip
+  184  rm -rf jboss*
+  185  ll
+  186  mv ~/Downloads/jboss-eap-7.2.0.zip .
+  187  ll
+  188  podman build -t exam-test:latest -f Dockerfile ..
+  189  cd inner-dir/
+  190  podman build -t exam-test:latest -f Dockerfile ..
+  191  podman run -it --name exam-test exam-test
+  192  ll
+  193  podman rm -af
+  194  podman run -it --name exam-test exam-test
+  195  podman rm -af
+  196  vim Dockerfile
+  197  cd tests/docker-build/context/inner-dir/
+  198  ll ..
+  199  vim Dockerfile
+  200  cd tests/docker-build/context/inner-dir/
+  201  podman build -t exam-test:latest -f Dockerfile ..
+  202  podman run -it --name exam-test exam-test
+  203  vim Dockerfile
+  204  podman build -t exam-test:latest -f Dockerfile ..
+  205  podman rm -af
+  206  podman run -it --name exam-test exam-test
+  207  podman rm -af
+  208  vim Dockerfile
+  209  podman build -t exam-test:latest -f Dockerfile ..
+  210  podman run -it --name exam-test exam-test
+  211  vim Dockerfile
+  212  podman build -t exam-test:latest -f Dockerfile ..
+  213  vim Dockerfile
+  214  podman build -t exam-test:latest -f Dockerfile ..
+  215  vim Dockerfile
+  216  podman build -t exam-test:latest -f Dockerfile ..
+  217  podman images
+  218  podman rm 499fd794a021 d405eb65edec e165f5472e02 e7efe9b91461 429683a60aaf 4129b7cf9d6b
+  219  podman images
+  220  podman rmi 499fd794a021 d405eb65edec e165f5472e02 e7efe9b91461 429683a60aaf 4129b7cf9d6b
+  221  podman images
+  222  podman rmi 499fd794a021 d405eb65edec e165f5472e02 e7efe9b91461 429683a60aaf 4129b7cf9d6b
+  223  podman images
+  224  podman ps -a
+  225  podman rm -af
+  226  podman rmi 499fd794a021 d405eb65edec e165f5472e02 e7efe9b91461 429683a60aaf 4129b7cf9d6b
+  227  podman ps -a
+  228  podman images
+  229  podman run -it --name exam-test exam-test
+  230  podman rmi 499fd794a021 d405eb65edec e165f5472e02 e7efe9b91461 429683a60aaf 4129b7cf9d6b
+  231  podman rm -af
+  232  vim Dockerfile
+  233  podman build -t exam-test:latest -f Dockerfile ..
+  234  podman run -it --name exam-test exam-test
+  235  podman rm -af
+  236  vim Dockerfile
+  237  podman build -t exam-test:latest -f Dockerfile ..
+  238  podman run -it --name exam-test exam-test
+  239  vim Dockerfile
+  240  podman rm -af
+  241  podman build -t exam-test:latest -f Dockerfile ..
+  242  podman run -it --name exam-test exam-test
+  243  podman build --help
+  244  podman build --help | grep arg
+  245  id 185
+  246  cat /etc/passwd | grep 185
+  247  cat /etc/passwd | grep 180
+  248  cat /etc/passwd
+  249  vim Dockerfile
+  250  podman build --help | grep arg
+  251  podman build -t exam-test:latest -f Dockerfile ..
+  252  vim Dockerfile
+  253  podman build -t exam-test:latest -f Dockerfile ..
+  254  vim Dockerfile
+  255  podman build -t exam-test:latest -f Dockerfile ..
+  256  vim Dockerfile
+  257  podman rm -af
+  258  podman run -it --name exam-test exam-test
+  259  podman run -it --name exam-test exam-test /bin/bash
+  260  podman rm -af
+  261  podman run -it --name exam-test exam-test /bin/bash
+  262  podman rm -af
+  263  podman run -it --name exam-test exam-test /bin/bash
+  264  vim Dockerfile
+  265  podman images
+  266  podman rmi 278ec57c7cb2 9d395f37cf65 e6d1e430c69b
+  267  podman images
+  268  podman rm -af
+  269  podman run -it --name exam-test exam-test /bin/sh
+  270  podman run -d --name exam-test exam-test
+  271  podman rm -af
+  272  podman run -d --name exam-test exam-test
+  273  podman exec -it exam-test /bin/bash
+  274  vim Dockerfile
+  275  podman rm -af
+  276  podman build -t exam-test:latest -f Dockerfile ..
+  277  podman run -it --name exam-test exam-test /binba/sh
+  278  podman run -it --name exam-test exam-test /bin/bash
+  279  podman rm -af
+  280  podman run -it --name exam-test exam-test /bin/bash
+  281  vim Dockerfile
+  282  podman build -t exam-test:latest -f Dockerfile ..
+  283  run
+  284  podman run -it --name exam-test exam-test /bin/bash
+  285  podman rm -af
+  286  podman run -it --name exam-test exam-test /bin/bash
+  287  podman rm -af
+  288  vim Dockerfile
+  289  podman build -t exam-test:latest -f Dockerfile ..
+  290  podman rm -af
+  291  podman run -it --name exam-test exam-test /bin/bash
+  292  vim Dockerfile
+  293  podman build -t exam-test:latest -f Dockerfile ..
+  294  podman rm -af
+  295  podman run -it --name exam-test exam-test /bin/bash
+  296  podman rm -af
+  297  podman run -it --name exam-test -p 8080 exam-test /bin/bash
+  298  vim Dockerfile
+  299  podman build -t exam-test:latest -f Dockerfile ..
+  300  podman rm -af
+  301  podman run -it --name exam-test -p 8080 exam-test /bin/bash
+  302  podman run -it --name exam-test --entrypoint="/binb/bash" -p 8080 exam-test
+  303  podman rm -af
+  304  podman run -it --name exam-test --entrypoint="/binb/bash" -p 8080 exam-test
+  305  podman run -it --name exam-test --entrypoint="/bin/bash" -p 8080 exam-test
+  306  podman rm -af
+  307  podman run -it --name exam-test --entrypoint="/bin/bash" -p 8080 exam-test
+  308  podman rm -af
+  309  podman run -d --name exam-test exam-test
+  310  podman ps -a
+  311  podman images
+  312  podman rmi c46e178ac56e 47050af55210 e2a964a06959 41d4f05dfa76
+  313  podman images
+  314  curl localhost:8080
+  315  podman rm -af
+  316  man 5 containerfile
+  317  podman run -d --name exam-test -p 8080 exam-test
+  318  curl localhost:8080
+  319  docker logs -f exam-test
+  320  podman logs -f exam-test
+  321  curl localhost:8080
+  322  podman rm -af
+  323  podman run -d --name exam-test -p 8080:8080 exam-test
+  324  curl localhost:8080
+  325  podman logs -f exam-test
+  326  curl localhost:8080
+  327  podman rm -af
+  328  podman run --name exam-test -p 8080:8080 exam-test
+  329  podman images
+  330  podman rm -af
+  331  podman run --name exam-test -p 8080:8080 -p 8443:8443 exam-test
+  332  podman run -d --name exam-test -p 8080:8080 exam-test
+  333  podman exec -it exam-test curl http://localhost:8080
+  334  vim Dockerfile
+  335  cd tests/docker-build/context/inner-dir
+  336  vim Dockerfile
+  337  podman rm -af
+  338  cd tests/docker-build/context/inner-dir
+  339  podman build -t exam-test:latest -f Dockerfile ..
+  340  podman run -d --name exam-test -p 8080:8080 exam-test
+  341  curl localhost:8080
+  342  clear
+  343  vim Dockerfile
+  344  podman build -t exam-test:latest -f Dockerfile ..
+  345  docker inspect b530158936d8eb677bfc1ce44d2d47454e6a14777ad9ed3f13917480fbbeef57
+  346  podman inspect b530158936d8eb677bfc1ce44d2d47454e6a14777ad9ed3f13917480fbbeef57
+  347  podman inspect b530158936d8eb677bfc1ce44d2d47454e6a14777ad9ed3f13917480fbbeef57 | grep 185
+  348  vim Dockerfile
+  349  podman --help | grep rm
+  350  podman run --help | grep rm
+  351  vim Dockerfile
+  352  podman build -t exam-test:latest -f Dockerfile ..
+  353  vim Dockerfile
+  354  podman build -t exam-test:latest -f Dockerfile ..
+  355  podman rm -af
+  356  podman run -d --build-arg workdir=/tmp/ok --name exam-test -p 8080:8080 exam-test
+  357  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  358  vim Dockerfile
+  359  podman build -t exam-test:latest -f Dockerfile ..
+  360  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  361  vim Dockerfile
+  362  podman images
+  363  podman rmi f55f96d61233 b530158936d8 868bf78989f0 5128bf3b0a39
+  364  podman images
+  365  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  366  podman images
+  367  podman rm -af
+  368  vim Dockerfile
+  369  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  370  podman run -it --name exam-test -p 8080 exam-test /bin/bash
+  371  podman rm -af
+  372  podman run -it --name exam-test -rm -p 8080 exam-test /bin/bash
+  373  podman run -it --name exam-test --rm -p 8080 exam-test /bin/bash
+  374  podman ps -a
+  375  vim Dockerfile
+  376  podman run -it --name exam-test --rm -p 8080 exam-test /bin/bash
+  377  podman build -t exam-test:latest -f Dockerfile --no-cache --build-arg workdir=/tmp/ok ..
+  378  podman run -it --name exam-test --rm -p 8080 exam-test /bin/bash
+  379  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  380  vim Dockerfile
+  381  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  382  podman run -d --name exam-test -p 8080 exam-test
+  383  podman logs -f exam-test
+  384  podman exec -it exam-test curl http://localhost:8080
+  385  vim Dockerfile
+  386  podman exec -it exam-test /bin/bash
+  387  curl http://localhost:8080
+  388  podman rm -af
+  389  podman run -d --name exam-test -p 8080:8080 exam-test
+  390  podman rm -af
+  391  podman run -d --name exam-test -p 8080 exam-test
+  392  podman ps
+  393  curl http://localhost:46759
+  394  clear
+  395  podman unshare --help
+  396  podman build -t exam-test:latest -f Dockerfile --build-arg workdir=/tmp/ok ..
+  397  podman build --help
+  398  clear
+  399  useradd --help
+  400  vim Dockerfile
+  401  podman build -t exam-test:latest -f Dockerfile ..
+  402  podman inspect -l
+  403  podman inspect -l | grep volume
+  404  podman inspect -l | grep vol
+  405  podman build -t exam-test:latest --no-cache -f Dockerfile ..
+  406  vim Dockerfile
+  407  podman build -t exam-test:latest --no-cache -f Dockerfile ..
+  408  podman inspect -l | grep vol
+  409  podman inspect -l
+  410  :q
+  411  podman inspect -l | grep Vol
+  412  vim Dockerfile
+  413  podman build -t exam-test:latest --no-cache -f Dockerfile ..
+  414  podman inspect -l | grep Vol
+  415  vim Dockerfile
+  416  podman build -t exam-test:latest --no-cache -f Dockerfile ..
+  417  podman images
+  418  podman prune --help
+  419  podman system prune --help
+  420  podman system prune -a
+  421  podman build -t exam-test:latest --no-cache -f Dockerfile ..
+  422  pdman images
+  423  podman images
+  424  podman ps
+  425  podman rm -af
+  426  podman rmi 6c1da3ebcfa6
+  427  podman inspect -l | grep Vol
+  428  podman inspect exam-test
+  429  podman inspect exam-test | grep Vol
+  430  podman inspect --help
+  431  podman ps
+  432  podman ps -a
+  433  vim Dockerfile
+  434  podman build -t exam-test:latest --no-cache -f Dockerfile ..
+  435  podman inspect exam-test | grep Vol
+  436  podman inspect exam-test --format "table {{.Volumes}}"
+  437  podman inspect exam-test --format "table {{.Volume}}"
+  438  podman inspect exam-test --format "table {{.volumes}}"
+  439  podman inspect exam-test
+  440  podman inspect exam-test --format "table {{.Config.volumes}}"
+  441  podman inspect exam-test --format "table {{.Config.Volumes}}"
+  442  podman inspect exam-test --format "table {{.Config}}"
+  443  podman inspect --help
+  444  podman inspect exam-test --format "table {{.Config}}" | jq .
+  445  podman inspect exam-test --format "table {{.Config}}" | jq . -
+  446  jq --help
+  447  podman inspect exam-test --format "table {{.Config}}"
+  448  podman inspect exam-test --format "table {{.Config}}" | jq
+  449  podman inspect exam-test --format "table {{.Config}}" | jq .
+  450  podman inspect exam-test --format "{{.Config}}" | jq .
+  451  podman inspect exam-test --format "{{.Config}}"
+  452  podman inspect exam-test --format "{{.Config}}" | jq
+  453  podman inspect exam-test --format "{{.Config}}" | jq .
+  454  podman inspect exam-test --format "json {{.Config}}" | jq .
+  455  podman inspect exam-test --format "{{json .Config}}" | jq .
+  456  podman inspect exam-test --format "{{json .Config.Volumes}}" | jq .
+  457  mkdir -p /tmp/data
+  458  touch /tmp/data/ok.txt
+  459  podman run -d --name exam-test -p 8080:8080 -v /tmp/data:/tmp/data exam-test
+  460  podman unshare ls -l /tmp/data
+  461  cat /etc/subuid
+  462  podman exec -it exam-test /bin/bash
+  463  podman exec --help
+  464  podman attach --help
+  465  podman exec -it exam-test /bin/bash
+  466  echo 'Hello world' > /tmp/data/ok.txt
+  467  podman exec -it exam-test /bin/bash
+  468  podman unshare id
+  469  podman exec -it exam-test /bin/bash
+  470  podman unshare chown 185:185 /tmp/data
+  471  podman exec -it exam-test /bin/bash
+  472  podman ps
+  473  podman exec -it exam-test /bin/bash
+  474  semanage fcontext --help
+  475  semanage fcontext -a -t container_file_t '/tmp/data(/.*)?'
+  476  sudo semanage fcontext -a -t container_file_t '/tmp/data(/.*)?'
+  477  gosu restorecon -Rv /tmp/data
+  478  restorecon -Rv /tmp/data
+  479  sudo restorecon -Rv /tmp/data
+  480  podman exec -it exam-test /bin/bash
+  481  podman unshare chown -R 185:185 /tmp/data
+  482  podman exec -it exam-test /bin/bash
+  483  podman unshare chown -R 0:0 /tmp/data
+  484  podman unshare ls -l /tmp/data
+  485  podman exec -it exam-test /bin/bash
+  486  podman rm -af
+  487  sudo semanage fcontext -d -t container_file_t '/tmp/data(/.*)?'
+  488  sudo restorecon -Rv /tmp/data
+  489  sudo restorecon -Rv '/tmp/data'
+  490  podman run -d --name exam-test -p 8080:8080 -v /tmp/data:/tmp/data exam-test
+  491  podman exec -it exam-test /bin/bash
+  492  semanage fcontext --help
+  493  sudo semanage fcontext -d -t container_file_t '/tmp/data(/.*)?'
+  494  podman exec -it exam-test /bin/bash
+  495  sudo restorecon -Rv '/tmp/data'
+  496  podman rm -af
+  497  mkdir /tmp/data2
+  498  podman run -d --name exam-test -p 8080:8080 -v /tmp/data2:/tmp/data exam-test
+  499  podman exec -it exam-test /bin/bash
+  500  podman rm -af
+  501  podman run -d --name exam-test -p 8080:8080 -v /tmp/data2:/tmp/data:Z exam-test
+  502  podman exec -it exam-test /bin/bash
+  503  echo 'Hello world' > /tmp/data2/ok.txt
+  504  podman exec -it exam-test /bin/bash
+  505  podman rm -af
+  506  podman run -d --name exam-test -p 8080:8080 -v /tmp/data2:/tmp/data exam-test
+  507  podman exec -it exam-test /bin/bash
+  508  podman rm -af
+  509  podman run -d --name exam-test -p 8080:8080 -v /tmp/data:/tmp/data exam-test
+  510  podman exec -it exam-test /bin/bash
+  511  sudo semanage fcontext -d -t container_file_t '/tmp/data(/.*)?'
+  512  sudo semanage fcontext -d -t container_file_t '/tmp/data'
+  513  ls -Z '/tmp/data'
+  514  ls -laZ '/tmp/data'
+  515  ls -dZ - /tmp/data
+  516  sudo semanage fcontext -d '/tmp/data(/.*)?'
+  517  sudo semanage fcontext -d "/tmp/data(/.*)?"
+  518  sudo semanage fcontext -d "/tmp/data"
+  519  sudo restorecon -Rv '/tmp/data'
+  520  sudo restorecon -Rv '/tmp/data' -f
+  521  sudo restorecon --help
+  522  restorecon --help
+  523  sudo semanage fcontext -d /tmp/data
+  524  semanage fcontext -d /tmp/data
+  525  sudo semanage fcontext -d /tmp/data
+  526  podman rm -af
+  527  sudo semanage fcontext -d /tmp/data
+  528  ls -dZ /tmp/data
+  529  ls -dZ /tmp/data2
+  530  mkdir /tmp/data3
+  531  ls -dZ /tmp/data3
+  532  sudo restorecon -Rv /tmp/data
+  533  man restorecon
+  534  sudo restorecon -RvF /tmp/data
+  535  ls -dZ /tmp/data
+  536  rm -rf /tmp/data
+  537  ls -dZ /tmp/data
+  538  mkdir /tmp/data
+  539  ls -dZ /tmp/data
+  540  echo 'Hello world' > /tmp/data/ok.txt
+  541  rm -rf /tmp/data2 /tmp/data3
+  542  podman run -d --name exam-test -p 8080:8080 -v /tmp/data:/tmp/data exam-test
+  543  man dockerfile
+  544  podman unshare ls -l /tmp/data
+  545  podman unshare chown -R 185:185 /tmp/data
+  546  podman exec -it exam-test /bin/bash
+  547  sudo semanage fcontext -a -t container_file_t '/tmp/data(/.*)?'
+  548  sudo restorecon -Rv /tmp/data
+  549  podman exec -it exam-test /bin/bash
+  550  vim Dockerfile
+  551  curl --help | grep '-f'
+  552  curl --help | grep "-f"
+  553  curl --help
+  554  clear
+  555  podman images
+  556  ls -lR ..
+  557  cd ..
+  558  ll
+  559  mkdir context
+  560  mv inner-dir/ dockerfiles
+  561  mv dockerfiles/ containerfiles
+  562  podman build -t exam-test:latest --no-cache -f containerfiles/Dockerfile context
+  563  ll
+  564  mv jboss-eap-7.2.0.zip context/
+  565  podman build -t exam-test:latest --no-cache -f containerfiles/Dockerfile context
+  566  podman images
+  567  podman ps
+  568  podman rm -af
+  569  podman system prune -a
+  570  podman system prune -af
+  571  podman images
+  572  podman ps
+  573  podman ps -a
+  574  clear
+  575  localctl
+  576  localectl
+  577  localectl set-keymap br
+  578  localectl list-keymaps | grep br
+  579  localectl set-keymap br-abnt2
+  580  localectl status
+  581  localectl
+  582  clear
+  583  history
+  584  vim containerfiles/Dockerfile 
+  585  history
+  586  history > ~/estudo-docker.txt
+  587  cat containerfiles/Dockerfile > ~/estudo-docker.txt
+  588  cat ~/estudo-docker.txt 
+  589  history > ~/estudo-docker.txt
+FROM registry.access.redhat.com/ubi8/openjdk-8-runtime
+
+LABEL maintainer=felipe \
+      email=felipeero@gmail.com
+
+ARG WORKDIR=/opt/rh
+ARG VOL_PATH=/tmp/data
+
+VOLUME $VOL_PATH
+
+ENV JBOSS_HOME=$WORKDIR/jboss
+
+USER 185
+
+WORKDIR $WORKDIR
+
+ADD --chown=jboss jboss-eap-7.2.0.zip .
+
+RUN unzip jboss-eap-7.2.0.zip && \
+    ln -s jboss-eap-7.2 $JBOSS_HOME && \
+    rm -rf jboss-eap-7.2.0.zip
+
+EXPOSE 8080 9443 9990 9999
+
+ENTRYPOINT $JBOSS_HOME/bin/standalone.sh -c standalone.xml -b 0.0.0.0
