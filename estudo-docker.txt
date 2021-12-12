@@ -1159,3 +1159,312 @@ ENTRYPOINT $JBOSS_HOME/bin/standalone.sh -c standalone.xml -b 0.0.0.0
  1137  history 150
  1138  history 200
  1139  history 200 >> ~/DO180-apps/estudo-docker.txt 
+  850  podman images --format "{{json .}}" | jq -c '. | select (.Repository | contains("mynginx")) | .Repository":".Tag'
+  851  podman images --format "{{json .}}" | jq -c '. | select (.Repository | contains("mynginx")) | ".Repository .Tag"'
+  852  podman images --format "{{json .}}" | jq -c '. | select (.Repository | contains("mynginx")) | ".(Repository) .Tag"'
+  853  podman images --format "{{json .}}" | jq -c '. | select (.Repository | contains("mynginx")) | ".\(Repository):\(.Tag)"'
+  854  podman images --format "{{json .}}" | jq -c '. | select (.Repository | contains("mynginx")) | "\(.Repository):\(.Tag)"'
+  855  cd ..
+  856  lab image-review grade
+  857  curl --help
+  858  podman search --list-tags nginx
+  859  podman search --list-tags httpd
+  860  podman search --help
+  861  podman push --help
+  862  clear
+  863  lab image-review finish
+  864  clear
+  865  exit
+  866  man -K WORKDIR
+  867  man --help
+  868  man -K Containerfile
+  869  man -K Dockerfile
+  870  man containers-registries.conf(5)
+  871  man  containers-registries.conf
+  872  man 5  containers-registries.conf
+  873  localectl status
+  874  gsettings get org.gnome.settings-daemon.peripherals.keyboard numlock-state 
+  875  gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'on'
+  876  gsettings get org.gnome.settings-daemon.peripherals.keyboard numlock-state 
+  877  exit
+  878  gsettings get org.gnome.settings-daemon.peripherals.keyboard numlock-state 
+  879  gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'on'
+  880  gsettings get org.gnome.settings-daemon.peripherals.keyboard numlock-state 
+  881  exit
+  882  gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'skdjhfdsf]'
+  883  gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'off'
+  884  gsettings get org.gnome.settings-daemon.peripherals.keyboard numlock-state 
+  885  gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'on'
+  886  exit
+  887  lab openshift-review start
+  888  find / -iname *ocp4*
+  889  cat /usr/local/etc/ocp4.config
+  890  source /usr/local/etc/ocp4.config
+  891  clear
+  892  oc login -u $RHT_OCP4_DEV_USER -p $RHT_OCP4_DEV_PASSWORD $RHT_OCP4_MASTER_API
+  893  oc new-project ${RHT_OCP4_DEV_USER}-ocp
+  894  oc new-app php:7.3~https://github.com/RedHatTraining/DO180-apps/ --context-dir=temps --name=temps
+  895  oc status
+  896  oc get pods -w
+  897  oc svc
+  898  oc get svc
+  899  oc expose temps
+  900  oc expose svc temps
+  901  oc get routes
+  902  curl http://temps-mvkhys-ocp.apps.na46.prod.nextcle.com:8080
+  903  oc get deploy
+  904  oc logs temps
+  905  oc logs deploy/temps
+  906  oc logs pod/temps-cb75ffd57-sz5hw
+  907  oc get routes
+  908  oc logs bc/temps
+  909  oc new-app --help
+  910  oc new-app --help | grep template
+  911  oc new-app --help
+  912  oc delete all -l app=temps
+  913  oc new-app php:7.3~https://github.com/RedHatTraining/DO180-apps/ --context-dir=temps --name=temps -l teste=ok
+  914  oc get bc
+  915  oc get bc/temps
+  916  oc describe -l
+  917  oc describe bc/temps
+  918  oc get templates
+  919  oc get templates --all-namespaces
+  920  oc get templates -n openshift
+  921  oc get pods
+  922  oc expose svc/temps
+  923  oc get pods --no-headers
+  924  oc get pods --no-headers | grep temps | tail n 1
+  925  oc get pods --no-headers | grep temps | tail -n 1
+  926  oc get pods --no-headers | awk '/temps/ {print $1}' | tail -n 1
+  927  oc get pods --help
+  928  oc get pods --no-headers -o go-template="{{.NAME}}"
+  929  oc get pods --no-headers -o go-template="{{.Name}}"
+  930  oc get pods --no-headers -o go-template="{{.name}}"
+  931  oc get pods -o go-template="{{.name}}"
+  932  oc get pods -o go-template="{{.names}}"
+  933  oc get pods --no-headers -o go-template="table {{.name}}"
+  934  oc get pods -o go-template="{{.names}}"
+  935  oc get pods -o go-template="{{.name}}"
+  936  oc get pods -o name
+  937  oc get pods -o json
+  938  oc get pods -o go-template="{{json}}"
+  939  oc get pods -o go-template="{{json .}}"
+  940  oc get pods -o go-template="{{json .names}}"
+  941  oc get pods -o json | jq .
+  942  oc get pods -o json | jq '.metadata'
+  943  oc get pods -o json | jq '.items[].metadata'
+  944  oc get pods -o json | jq '.items[].metadata.name'
+  945  oc get pods -o json | jq '.items[].metadata.name | select(. | contains("temps"))'
+  946  oc get pods -o json | jq '.items[].metadata.name | select(. | contains("temps")) | "."'
+  947  oc get pods -o json | jq '.items[] | select(.metada.name | contains("temps")) | "\(.metadata.name)"'
+  948  oc get pods -o json | jq '.items[] | select(.metada.name | contains(temps)) | "\(.metadata.name)"'
+  949  oc get pods -o json | jq '.items[] | select(.metada.name | contains("temps")) | "\(.metadata.name)"'
+  950  oc get pods -o json | jq '.items[]? | select(.metada.name | contains("temps")) | "\(.metadata.name)"'
+  951  oc get pods -o json | jq '.items[]? | select(.metada.name | contains("temps"))'
+  952  oc get pods -o json | jq '.items[] | select(.metada.name | contains("temps"))'
+  953  oc get pods -o json | jq -c '.items[] | select(.metada.name | contains("temps"))'
+  954  oc get pods -o json | jq -c '.items[].metadata | select(.name | contains("temps"))'
+  955  oc get pods -o json | jq -c '.items[].metadata | select(.name | contains("temps")) | "\(.name)"'
+  956  oc get pods -o json | jq -c '.items[].metadata | select(.name == "temps-1-build") | "\(.name)"'
+  957  oc get pods --help
+  958  oc get pods --field-selector=name=temps-1-build
+  959  oc get pods --field-selector=metadata.name=temps-1-build
+  960  oc get pods --field-selector=metadata.name=temps
+  961  oc get pods --field-selector==metadata.name=temps
+  962  oc get pods --field-selector=metadata.name==temps
+  963  oc get pods --field-selector=metadata.name=='*temps*'
+  964  oc get pods --field-selector=metadata.name='*temps*'
+  965  oc get pods --help
+  966  oc get pods -L=[app]
+  967  oc get pods -L app
+  968  oc get pods -L=['app']
+  969  oc get pods -L=["app"]
+  970  oc get pods -L app
+  971  oc get pods -o go-template --template='{{.name}}'
+  972  oc get pods --show-leabels
+  973  oc get pods --show-labels
+  974  oc get pods -L teste
+  975  oc describe pod
+  976  oc get pods --help
+  977  oc new-app --help
+  978  oc delete all -l app=temps
+  979  oc new-app php:7.3~https://github.com/RedHatTraining/DO180-apps/ --context-dir=temps --name=temps -l teste=ok
+  980  oc get pods --selector=app=temps
+  981  oc get pods --help
+  982  oc get pods -l app=temps
+  983  oc get pods -l teste=ok
+  984  oc describe deploy
+  985  oc describe pod
+  986  oc describe pod | grep app
+  987  oc describe pod | grep app=
+  988  oc describe pod | grep teste=
+  989  oc describe pods | grep app=
+  990  oc get pods
+  991  oc describe pod/temps-79f7c66c7f-gb4dm
+  992  oc describe pod/temps-79f7c66c7f-gb4dm | grep app
+  993  oc delete all -l app=temps
+  994  oc get pods
+  995  oc new-app php:7.3~https://github.com/RedHatTraining/DO180-apps/ --context-dir=temps --name=temps
+  996  oc get pods]
+  997  oc get pods
+  998  oc get pods --help
+  999  kubectl get pod -l app=yourapp --field-selector=status.phase==Running -o jsonpath="{.items[0].metadata.name}"
+ 1000  #tl get pod -l app=yourapp --field-selector=status.phase==Running -o jsonpath="{.items[0].metadata.name}"
+ 1001  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[0].metadata.name}"
+ 1002  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[].metadata.name}"
+ 1003  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.metadata.name}"
+ 1004  oc get pod --field-selector=status.phase==Running -o jsonpath="{.metadata.name}"
+ 1005  oc get pod --field-selector=status.phase==Running
+ 1006  oc get pod --field-selector=status.phase==Running -o jsonpath="{items[0].metadata.name}"
+ 1007  oc get pod --field-selector=status.phase==Running -o jsonpath="{items[].metadata.name}"
+ 1008  clear
+ 1009  oc get pod --field-selector=status.phase==Running -o jsonpath="{.items[].metadata.name}"
+ 1010  oc get pod --field-selector=status.phase==Running -o jsonpath="{.items[0].metadata.name}"
+ 1011  oc get pod --field-selector=status.phase==Running -o jsonpath="{.items[].metadata.name}"
+ 1012  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[].metadata.name}"
+ 1013  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[]?.metadata.name}"
+ 1014  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items?[].metadata.name}"
+ 1015  oc get pod --field-selector=status.phase==Running -o jsonpath="{.items?[].metadata.name}"
+ 1016  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[]?.metadata.name}"
+ 1017  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[].metadata.name}"
+ 1018  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[].?metadata.name}"
+ 1019  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{.items[].metadata.name}"
+ 1020  oc get pods --help
+ 1021  oc get pod -l app=temps
+ 1022  history | grep field
+ 1023  oc get pods
+ 1024  oc get pods | awak '/temps/'
+ 1025  oc get pods | awk '/temps/'
+ 1026  oc get pods | awk '/!build/'
+ 1027  oc get pods | awk '/(!build)/'
+ 1028  oc get pods | awk '/?(!build)/'
+ 1029  oc get pods | awk '/(?!build)/'
+ 1030  oc get pods | awk '/^((?!build).)*$/'
+ 1031  oc get pods | awk '/((?!build).)*/'
+ 1032  oc get pods | awk '/((?!build).)/'
+ 1033  oc get pods -l app=temps
+ 1034  oc get pods
+ 1035  oc delete deploy
+ 1036  oc delete deploy --all
+ 1037  oc get pods
+ 1038  oc get all
+ 1039  oc get pods
+ 1040  oc delete bc --all
+ 1041  oc get pods -w
+ 1042  oc delete all -l app=temps
+ 1043  oc get all
+ 1044  oc new-app php:7.3~https://github.com/RedHatTraining/DO180-apps/ --context-dir=temps --name=temps
+ 1045  oc logs -f bc/temps
+ 1046  oc get pods -w
+ 1047  oc expose svc/temps
+ 1048  oc get routes/temps
+ 1049  lab openshift-review grade
+ 1050  clear
+ 1051  oc get pods -o yaml
+ 1052  oc get pods
+ 1053  oc get pods -o name
+ 1054  oc get pods -o name | tail -n 1
+ 1055  oc get pods -o name --field-selector=status.phase==Running
+ 1056  oc describe (oc get pods -o name --field-selector=status.phase==Running)
+ 1057  oc describe $(oc get pods -o name --field-selector=status.phase==Running)
+ 1058  oc decribe pod -l deployment=temps
+ 1059  oc describe pod -l deployment=temps
+ 1060  clear
+ 1061  oc new-app --help
+ 1062  oc new-app --help | grep Dockerfile
+ 1063  oc new-app --help | grep -i Dockerfile
+ 1064  oc new-app --help | grep -i Containerfile
+ 1065  oc new-app --help | grep -i docker
+ 1066  oc new-app --help | grep -i container
+ 1067  oc new-app --help | grep -i search
+ 1068  oc new-app --search --template=ruby
+ 1069  oc new-app --search --template=jenkins
+ 1070  oc get all
+ 1071  oc process --help
+ 1072  oc options
+ 1073  oc create --help
+ 1074  oc get all]
+ 1075  oc get all
+ 1076  oc get all -l template=temps
+ 1077  oc get all -l app=temps
+ 1078  oc get templates
+ 1079  oc search --help
+ 1080  oc new-app --search
+ 1081  oc-new app --help
+ 1082  oc new-app --help
+ 1083  oc new-app -S *
+ 1084  oc new-app -S
+ 1085  oc new-app -S mysql
+ 1086  oc new-app --template=mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l teste=foda --name=hahaha
+ 1087  oc new-app --template=mysql-ephemeral MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l teste=foda --name=hahaha
+ 1088  oc get all teste=foda
+ 1089  oc get all -l teste=foda
+ 1090  oc delete all -l teste=foda
+ 1091  oc new-app --template=openshift//mysql-ephemeral MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l teste=foda --name=hahaha
+ 1092  oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l db=mysql
+ 1093  oc status
+ 1094  oc delete all -l db=mysql
+ 1095  oc start-build --help
+ 1096  oc new-build --help
+ 1097  oc -h
+ 1098  oc -h | grep new
+ 1099  oc -h
+ 1100  oc process --help
+ 1101  clear
+ 1102  oc expose --help
+ 1103  oc get is
+ 1104  oc describe is/temps
+ 1105  oc get pod -l app=temps --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1106  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1107  oc get pod --field-selector=status.phase==Running -o jsonpath="{..name}"
+ 1108  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1109  oc get pod --field-selector=status.metadata.name}"
+ 1110  oc get pod -o jsonpath="{..metadata.name}"
+ 1111  oc get pod --field-selector=status.phase==Running -o jsonpath="{..name}"
+ 1112  oc get pod --field-selector=status.metadata.name}"
+
+
+
+
+
+
+
+
+
+ 1113  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}"
+ 1114  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}\n"
+ 1115  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}" -w "\n"
+ 1116  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}{\n}"
+ 1117  oc get pod --field-selector=status.phase==Running -o jsonpath="{..metadata.name}{'\n'}"
+ 1118  history 50
+ 1119  history 75
+ 1120  history -n 75
+ 1121  history n 75
+ 1122  history 75
+ 1123  history 100
+ 1124  history 100 >> ~/DO180-apps/estudo-docker.txt 
+ 1125  cd DO180-apps/
+ 1126  git status
+ 1127  git add .
+ 1128  git commit -m "Adicionar resultado estudo Docker"
+ 1129  git push
+ 1130  cat ~/creds 
+ 1131  git push
+ 1132  cd -
+ 1133  lab openshift-review grade
+ 1134  lab openshift-review finish
+ 1135  history 120 >> ~/DO180-apps/estudo-docker.txt 
+ 1136  history 120
+ 1137  history 150
+ 1138  history 200
+ 1139  history 200 >> ~/DO180-apps/estudo-docker.txt 
+ 1140  cd DO180-apps/
+ 1141  git add .
+ 1142  git commit -m "Adicionar resultado estudo Docker"
+ 1143  git push
+ 1144  cd -
+ 1145  cd DO180-apps/
+ 1146  git status
+ 1147  vi ~/DO180-apps/estudo-docker.txt 
+ 1148  cd -
+ 1149  history 300 >> ~/DO180-apps/estudo-docker.txt 
