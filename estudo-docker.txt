@@ -1468,3 +1468,53 @@ ENTRYPOINT $JBOSS_HOME/bin/standalone.sh -c standalone.xml -b 0.0.0.0
  1147  vi ~/DO180-apps/estudo-docker.txt 
  1148  cd -
  1149  history 300 >> ~/DO180-apps/estudo-docker.txt 
+ 1205  vim /home/student/DO180/labs/dockerfile-review/
+ 1206  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1207  man sed
+ 1208  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1209  ls -la /home/student/DO180/labs/dockerfile-review
+ 1210  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1211  ls -laR /home/student/DO180/labs/dockerfile-review
+ 1212  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1213  podman build -t do180/custom-apache /home/student/DO180/labs/dockerfile-review/Containerfile
+ 1214  podman build -t do180/custom-apache /home/student/DO180/labs/dockerfile-review
+ 1215  podman images
+ 1216  podman --help
+ 1217  podman build --help
+ 1218  podman build -t do180/custom-apache --layers false /home/student/DO180/labs/dockerfile-review
+ 1219  podman build -t do180/custom-apache --layers=false /home/student/DO180/labs/dockerfile-review
+ 1220  podman images
+ 1221  podman rmi f5e278bd05a5
+ 1222  podman images
+ 1223  podman run -d --name containerfile -p 20080:8080 do180/custom-apache
+ 1224  podman ps
+ 1225  podman exec -it containerfile /bin/bash
+ 1226  curl https://localhost:20080
+ 1227  curl http://localhost:20080
+ 1228  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1229  podman build -t do180/custom-apache --layers=false /home/student/DO180/labs/dockerfile-review
+ 1230  podman rm -af
+ 1231  podman run -d --name containerfile -p 20080:8080 do180/custom-apache
+ 1232  podman exec -it containerfile /bin/bash
+ 1233  podman build -t do180/custom-apache --layers=false --no-cache /home/student/DO180/labs/dockerfile-review
+ 1234  history
+ 1235  man fc
+ 1236  podman build -t do180/custom-apache --layers=false --no-cache /home/student/DO180/labs/dockerfile-review
+ 1237  podman rm -af
+ 1238  podman run -d --name containerfile -p 20080:8080 do180/custom-apache
+ 1239  podman exec -it containerfile /bin/bash
+ 1240  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1241  history
+ 1242  podman build -t do180/custom-apache --layers=false --no-cache /home/student/DO180/labs/dockerfile-review; podman rm -af; podman run -d --name containerfile -p 20080:8080 do180/custom-apache; podman exec -it containerfile /bin/bash;
+ 1243  history
+ 1244  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1245  history
+ 1246  podman build -t do180/custom-apache --layers=false --no-cache /home/student/DO180/labs/dockerfile-review; podman rm -af; podman run -d --name containerfile -p 20080:8080 do180/custom-apache; podman exec -it containerfile /bin/bash;
+ 1247  curl http://localhost:20080
+ 1248  lab dockerfile-review grade
+ 1249  #lab dockerfile-review finish
+ 1250  clear
+ 1251  podman exec -it containerfile /bin/bash
+ 1252  #history 300 >> ~/DO180-apps/estudo-docker.txt 
+ 1253  history 50
+ 1254  history 50 >> ~/DO180-apps/estudo-docker.txt 
