@@ -1518,3 +1518,203 @@ ENTRYPOINT $JBOSS_HOME/bin/standalone.sh -c standalone.xml -b 0.0.0.0
  1252  #history 300 >> ~/DO180-apps/estudo-docker.txt 
  1253  history 50
  1254  history 50 >> ~/DO180-apps/estudo-docker.txt 
+ 1243  history
+ 1244  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1245  history
+ 1246  podman build -t do180/custom-apache --layers=false --no-cache /home/student/DO180/labs/dockerfile-review; podman rm -af; podman run -d --name containerfile -p 20080:8080 do180/custom-apache; podman exec -it containerfile /bin/bash;
+ 1247  curl http://localhost:20080
+ 1248  lab dockerfile-review grade
+ 1249  #lab dockerfile-review finish
+ 1250  clear
+ 1251  podman exec -it containerfile /bin/bash
+ 1252  #history 300 >> ~/DO180-apps/estudo-docker.txt 
+ 1253  history 50
+ 1254  history 50 >> ~/DO180-apps/estudo-docker.txt 
+ 1255  cd DO180-apps/
+ 1256  git add .
+ 1257  git commit -m "Adicionar resultado estudo Docker"
+ 1258  git push
+ 1259  cat ~/creds 
+ 1260  git push
+ 1261  vim /home/student/DO180/labs/dockerfile-review/Containerfile 
+ 1262  lab dockerfile-review grade
+ 1263  curl http://localhost:20080
+ 1264  lab dockerfile-review grade
+ 1265  podman build -t do180/custom-apache --layers=false --no-cache /home/student/DO180/labs/dockerfile-review; podman rm -af; podman run -d --name containerfile -p 20080:8080 do180/custom-apache; podman exec -it containerfile /bin/bash;
+ 1266  podman images
+ 1267  podman rmi db0e2a35f1cf 625615ac6bfe 18e60cc62645 aa48d218b218 4a3f74a380c9 c03b1f366473 690db3d31ea3
+ 1268  podman images
+ 1269  lab dockerfile-review grade
+ 1270  lab dockerfile-review finish
+ 1271  clear
+ 1272  lab multicontainer-review start
+ 1273  cd ~/DO180/labs/multicontainer-review
+ 1274  #login -u mvkhys -p 52b45cbdfc2147e1b3e6 https://api.na46.prod.nextcle.com:6443
+ 1275* source /usr/local/etc/ocp4.config
+ 1276  login -u mvkhys -p 52b45cbdfc2147e1b3e6 https://api.na46.prod.nextcle.com:6443
+ 1277  oc login -u mvkhys -p 52b45cbdfc2147e1b3e6 https://api.na46.prod.nextcle.com:6443
+ 1278  oc new-project mvkhys-deploy
+ 1279  ls -laR
+ 1280  #podman build -t quay.io/felipeerobnb/do180-mysql-80-rhel8 ./images/mysql
+ 1281  podman images
+ 1282  podman build -t quay.io/felipeerobnb/do180-mysql-80-rhel8 --layers=false ./images/mysql
+ 1283  podman build -t quay.io/felipeerobnb/do180-quote-php --layers=false ./images/quote-php
+ 1284  podman images
+ 1285  podman push quay.io/felipeerobnb/do180-mysql-80-rhel8
+ 1286  podman login quay.io
+ 1287  echo "lXAMCYT1Cfp9oalCv9iOrz00QC5YqDEOzDkw7d95TJm17w9OirAlfNo/hkBtPWGC" >> ~/creds 
+ 1288  podman push quay.io/felipeerobnb/do180-mysql-80-rhel8
+ 1289  podman push quay.io/felipeerobnb/do180-quote-php
+ 1290  ll
+ 1291  vim quote-php-template.json 
+ 1292  oc create -f quote-php-template.json 
+ 1293  oc get templates
+ 1294  oc process quote-php-persistent --parameters
+ 1295  vim quote-php-template.json 
+ 1296  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1297  oc get all -l app=quote-php
+ 1298  vim quote-php-template.json 
+ 1299  oc get all -l template=quote-php-mysql-persistent-template
+ 1300  oc get pv
+ 1301  oc get pvc
+ 1302  oc describe pvc
+ 1303  oc status
+ 1304  oc get pods
+ 1305  oc get svc
+ 1306  oc logs mysql
+ 1307  oc logs pod/mysql
+ 1308  oc logs pod/mysql -c mysql
+ 1309  oc describe mysql
+ 1310  oc describe pod/mysql
+ 1311  oc get pvc
+ 1312  oc delete all -l template=quote-php-mysql-persistent-template
+ 1313  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1314  oc get pods -w
+ 1315  oc delete all,pvc -l template=quote-php-mysql-persistent-template
+ 1316  oc status
+ 1317  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} -l testify=opa | oc create -f -
+ 1318  oc get all -l testify=opa
+ 1319  oc logs pod/mysql -c mysql
+ 1320  oc describe pod/mysql
+ 1321  oc describe pod/mysql -w
+ 1322  oc events --help
+ 1323  oc event --help
+ 1324  oc --help | grep events
+ 1325  oc --help | grep event
+ 1326  oc logs --help
+ 1327* 
+ 1328  oc describe pod/mysql -w
+ 1329  oc describe pod/mysql
+ 1330  oc restart
+ 1331  oc delete all,pvc -l template=quote-php-mysql-persistent-template
+ 1332  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} -l testify=opa | oc create -f -
+ 1333  oc describe pod/mysql
+ 1334  oc delete all,pvc -l template=quote-php-mysql-persistent-template
+ 1335  oc get pvs
+ 1336  oc get pv
+ 1337  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1338  oc get pods -w
+ 1339  oc describe pod/mysql
+ 1340  history
+ 1341  oc delete all,pvc -l template=quote-php-mysql-persistent-template; oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1342  oc get pods -w
+ 1343  oc describe pod/mysql
+ 1344  oc delete all,pvc -l template=quote-php-mysql-persistent-template; oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -; oc get pods -w; oc describe pod/mysql;
+ 1345  oc get events
+ 1346  oc get events --help
+ 1347  oc get events -w
+ 1348  oc delete all,pvc -l template=quote-php-mysql-persistent-template; oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -; oc get events -w
+ 1349  oc delete pod/mysql --force=true --grace-period=0s
+ 1350  oc delete pod/mysql --force=true --grace-period=0
+ 1351  oc delete all,pvc -l template=quote-php-mysql-persistent-template
+ 1352  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1353  oc get pods -w
+ 1354  oc delete pod/mysql
+ 1355  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1356  oc get pods -w
+ 1357  oc describe pod/mysql | grep -i Taint
+ 1358  oc describe pod/mysql | grep -i taint
+ 1359  oc describe pod/mysql
+ 1360  oc delete all,pvc -l template=quote-php-mysql-persistent-template
+ 1361  oc delete project mvkhys-deploy
+ 1362  clear
+ 1363  oc new-project mvkhys-deploy
+ 1364  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1365  oc create -f quote-php-template.json 
+ 1366  vim quote-php-template.json 
+ 1367  oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+ 1368  oc get pods -w
+ 1369  oc get svc
+ 1370  oc expose svc/quote-php
+ 1371  oc get route/quote-php
+ 1372  curl http://quote-php-mvkhys-deploy.apps.na46.prod.nextcle.com
+ 1373  oc delete all,pvc -l template=quote-php-mysql-persistent-template; oc process quote-php-persistent -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -; oc get events -w
+ 1374  oc get pods -w
+ 1375  oc expose svc/quote-php
+ 1376  oc expose route/quote-php
+ 1377  oc get route/quote-php
+ 1378  curl http://quote-php-mvkhys-deploy.apps.na46.prod.nextcle.com
+ 1379  history
+ 1380  lab multicontainer-review grade
+ 1381  #lab multicontainer-review finish
+ 1382  oc get templates -n openshift
+ 1383  quote-php-mvkhys-deploy.apps.na46.prod.nextcle.com
+ 1384  oc get template mysql-persistent -n openshift -o yaml
+ 1385  oc status
+ 1386  oc process openshift//mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi --name=teste1 -l vixe=testando | oc create -f -
+ 1387  oc process openshift//mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi --name teste1 -l vixe=testando | oc create -f -
+ 1388  #oc process openshift//mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi -l vixe=testando | oc create -f -
+ 1389  oc process openshift//mysql-persistent --parameters
+ 1390  oc process mysql-persistent --parameters -n openshift
+ 1391  oc process openshift//mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi -l vixe=testando | oc create -f -
+ 1392  oc process openshift//mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=123456 -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi -l vixe=testando | oc create -f -
+ 1393  oc get all -l vix=testando
+ 1394  oc get all -l vixe=testando
+ 1395  #oc delete all -l vixe=testando
+ 1396  oc get pods
+ 1397* oc logs mysql-1-deploy
+ 1398  oc logs deploy/mysql
+ 1399  oc logs dc/mysql
+ 1400  oc get pods
+ 1401  history
+ 1402  #oc delete all -l vixe=testando
+ 1403  oc get pods -l vixe=testando
+ 1404  oc get pods --show-labels
+ 1405  oc get all --show-labels
+ 1406  oc delete all -l vixe=testando
+ 1407  oc get pods
+ 1408  oc process mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=123456 -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi -l vixe=testando | oc create -f -
+ 1409  oc process mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=123456 -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi -l vixe=testando -n openshift | oc create -f -
+ 1410  oc process --parameters mysql-persistent -n openshift
+ 1411  oc process mysql-persistent -n openshift
+ 1412  oc new-app --template=mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi
+ 1413  oc new-app --template=mysql-persistent -p MYSQL_USER=dev -p MYSQL_PASSWORD=123456 -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi
+ 1414  oc status
+ 1415  oc get pods
+ 1416  oc get all -l template=mysql-persistent
+ 1417  oc get dc
+ 1418  oc get dc --show-labels
+ 1419  oc get all -l template=mysql-persistent-template
+ 1420  oc delete all -l template=mysql-persistent-template
+ 1421  oc status
+ 1422  oc get pvc
+ 1423  oc delete all,pvc,pv,secret -l template=mysql-persistent-template
+ 1424  oc delete all -l template=mysql-persistent-template --all
+ 1425  oc delete --help | all
+ 1426  oc delete --help | grep all
+ 1427  oc delete all -l template=mysql-persistent-template --all
+ 1428  oc get all -l template=mysql-persistent-template --all
+ 1429  oc status
+ 1430  oc get pods
+ 1431  oc get svc
+ 1432  lab multicontainer-review grade
+ 1433  lab multicontainer-review finish
+ 1434  oc get all --all
+ 1435  oc get all
+ 1436  oc projects
+ 1437  oc delete --all
+ 1438  oc delete --help
+ 1439  oc delete all --all
+ 1440  history
+ 1441  cd ~/DO180-apps/
+ 1442  history 200 >> ~/DO180-apps/estudo-docker.txt 
